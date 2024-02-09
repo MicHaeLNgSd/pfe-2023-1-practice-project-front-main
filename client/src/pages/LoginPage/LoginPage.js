@@ -6,6 +6,7 @@ import Logo from '../../components/Logo';
 import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './LoginPage.module.sass';
+import AuthHeader from '../../components/AuthHeader/AuthHeader';
 const {
   mainContainer,
   loginContainer,
@@ -17,12 +18,7 @@ const {
 const LoginPage = ({ history }) => (
   <div className={mainContainer}>
     <div className={loginContainer}>
-      <div className={headerSignUpPage}>
-        <Logo src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} alt="logo" />
-        <Link to="/registration" className={linkLoginContainer}>
-          Signup
-        </Link>
-      </div>
+      <AuthHeader to="/registration" linkText="Signup" />
       <div className={loginFormContainer}>
         <LoginForm history={history} />
       </div>

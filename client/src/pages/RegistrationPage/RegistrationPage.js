@@ -7,6 +7,7 @@ import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import regFooterText from './regFooterText';
 import styles from './RegistrationPage.module.sass';
+import AuthHeader from '../../components/AuthHeader/AuthHeader';
 const {
   headerArticle,
   article,
@@ -37,12 +38,7 @@ const RegistrationPage = (props) => {
   return (
     <div className={signUpPage}>
       <div className={signUpContainer}>
-        <div className={headerSignUpPage}>
-          <Logo src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} />
-          <Link to="/login" className={linkLoginContainer}>
-            Login
-          </Link>
-        </div>
+        <AuthHeader to="/login" linkText="Login" />
         <RegistrationForm history={props.history} />
       </div>
       <div className={footer}>
