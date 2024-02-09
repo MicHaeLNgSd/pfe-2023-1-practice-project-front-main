@@ -1,8 +1,6 @@
 import React from 'react';
-
 import CONSTANTS from '../../constants';
 import styles from './NavBarList.module.sass';
-// import styles from '../Header/Header.module.sass';
 
 function NavBarList(props) {
   const { navList } = props;
@@ -16,11 +14,11 @@ function NavBarList(props) {
       <li key={l.title}>
         <span>{l.title}</span>
         <img src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`} alt="menu" />
-        <ul>{listItems}</ul>
+        <ul className={styles.dropDownList}>{listItems}</ul>
       </li>
     );
   });
-  return <ul>{navItems}</ul>;
+  return <ul className={styles.navList}>{navItems}</ul>;
 }
 
 export default NavBarList;
