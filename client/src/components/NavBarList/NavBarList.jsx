@@ -1,13 +1,14 @@
 import React from 'react';
 import CONSTANTS from '../../constants';
 import styles from './NavBarList.module.sass';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function NavBarList(props) {
   const { navList } = props;
   const navItems = navList.map((l) => {
     const listItems = l.items.map((i) => (
       <li key={i.name}>
-        <a href={i.link}>{i.name}</a>
+        <Link to={i.link}>{i.name}</Link>
       </li>
     ));
     return (

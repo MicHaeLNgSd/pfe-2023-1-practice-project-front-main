@@ -1,0 +1,90 @@
+$bronze: #e0b48d
+$gold: #e8b954
+$platinum:#555
+$managed:#28d2d0
+
+
+.pricingItem
+  cursor: pointer
+  width:25%
+  &:hover .pricingBox
+    box-shadow: 0 10px 10px #6f6f6f
+  &:nth-child(1)
+    .priceButton
+      background-color: $bronze
+    .title
+      color: $bronze
+    .price
+      color: $bronze
+    .pricingBox
+      border-color: $bronze
+  &:nth-child(2)
+    .priceButton
+      background-color: $gold
+    .title
+      color: $gold
+    .price
+      color: $gold
+    .pricingBox
+      border-color: $gold
+  &:nth-child(3)
+    .priceButton
+      background-color: $platinum
+    .title
+      color: $platinum
+    .price
+      color: $platinum
+    .pricingBox
+      border-color: $platinum
+  &:nth-child(4)
+    .priceButton
+      background-color: $managed
+    .title
+      color: $managed
+    .price
+      color: $managed
+    .pricingBox
+      border-color: $managed
+    
+
+.priceButton
+  background-color: var(--test)
+  text-decoration: none
+  color: white
+  font-size: 17px
+  font-weight: bold
+  display: block
+  text-align: center
+  border-radius: 5px
+  line-height: 45px
+  cursor: pointer
+  font-family: sans-serif
+  
+.title
+  color: black
+  font-size: 33px
+  font-weight: bold
+  margin-bottom: 10px
+
+.boxText
+  color: #666
+  width: 100%
+
+.price
+  color: black
+  display: block
+  text-align: right
+  width: 100%
+  font-size: 28px
+  font-weight: bold
+  color: $platinum
+  font-family: 'Raleway', sans-serif
+
+.pricingBox
+  border: 10px solid black
+  margin-bottom: 15px
+  padding: 16px
+  min-height: 150px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
