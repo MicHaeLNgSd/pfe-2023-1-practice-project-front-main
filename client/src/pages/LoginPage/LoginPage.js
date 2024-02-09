@@ -1,19 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import Logo from '../../components/Logo';
 import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
-import CONSTANTS from '../../constants';
 import styles from './LoginPage.module.sass';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
-const {
-  mainContainer,
-  loginContainer,
-  headerSignUpPage,
-  linkLoginContainer,
-  loginFormContainer,
-} = styles;
+const { mainContainer, loginContainer, loginFormContainer } = styles;
 
 const LoginPage = ({ history }) => (
   <div className={mainContainer}>

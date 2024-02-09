@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Logo from '../../components/Logo';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
-import CONSTANTS from '../../constants';
 import regFooterText from './regFooterText';
 import styles from './RegistrationPage.module.sass';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
@@ -14,8 +11,6 @@ const {
   ColumnContainer,
   signUpPage,
   signUpContainer,
-  headerSignUpPage,
-  linkLoginContainer,
   articlesMainContainer,
   footer,
 } = styles;
