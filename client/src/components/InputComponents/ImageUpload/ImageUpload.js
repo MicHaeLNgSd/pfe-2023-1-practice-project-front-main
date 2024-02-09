@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import { useField } from 'formik';
 
 const ImageUpload = (props) => {
-  const [field, meta, helpers] = useField(props.name);
+  // const [field, meta, helpers] = useField(props.name);
+  const [field] = useField(props.name);
   const { uploadContainer, inputContainer, imgStyle } = props.classes;
   const onChange = (e) => {
     const node = window.document.getElementById('imagePreview');
@@ -33,7 +34,11 @@ const ImageUpload = (props) => {
         />
         <label htmlFor="fileInput">Chose file</label>
       </div>
-      <img id="imagePreview" className={classNames({ [imgStyle]: !!field.value })} alt="user" />
+      <img
+        id="imagePreview"
+        className={classNames({ [imgStyle]: !!field.value })}
+        alt="user"
+      />
     </div>
   );
 };

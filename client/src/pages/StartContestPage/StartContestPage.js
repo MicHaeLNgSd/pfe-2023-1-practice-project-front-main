@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import { selectBundle } from '../../actions/actionCreator';
 import BundleBox from '../../components/BundleBox/BundleBox';
 import CONSTANTS from '../../constants';
@@ -30,13 +30,11 @@ const StartContestPage = (props) => {
       <Header />
       <div className={styles.startContestHeader}>
         <div className={styles.startContestInfo}>
-          <h2>
-            START A CONTEST
-          </h2>
+          <h2>START A CONTEST</h2>
           <span>
-            Launching a contest on Squadhelp is very simple. Select the type of contest you would like
-            to launch from the list below. Provide a detailed brief and select a pricing package.
-            Begin receiving submissions instantly!
+            Launching a contest on Squadhelp is very simple. Select the type of contest
+            you would like to launch from the list below. Provide a detailed brief and
+            select a pricing package. Begin receiving submissions instantly!
           </span>
         </div>
         <ProgressBar currentStep={1} />
@@ -47,7 +45,10 @@ const StartContestPage = (props) => {
             Our Most Popular
             <span>Categories</span>
           </span>
-          <span className={styles.info}>Pick from our most popular categories, launch a contest and begin receiving submissions right away</span>
+          <span className={styles.info}>
+            Pick from our most popular categories, launch a contest and begin receiving
+            submissions right away
+          </span>
           <hr />
         </div>
         <div className={styles.baseBundles}>
@@ -70,12 +71,13 @@ const StartContestPage = (props) => {
             setBundle={setBundle}
           />
         </div>
-
       </div>
       <div className={styles.combinedBundles}>
         <div className={styles.infoCombinedBundles}>
           <span className={styles.headerInfo}>Save With Our Bundle Packages</span>
-          <span className={styles.info}>Launch multiple contests and pay a discounted bundle price</span>
+          <span className={styles.info}>
+            Launch multiple contests and pay a discounted bundle price
+          </span>
           <hr />
         </div>
         <div className={styles.baseBundles}>

@@ -10,7 +10,7 @@ import {
   clearChangeMarkError,
   goToExpandedDialog,
   changeShowImage,
-  changeModalShow,
+  // changeModalShow,
 } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 import styles from './OfferBox.module.sass';
@@ -42,7 +42,8 @@ const OfferBox = (props) => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => props.setOfferStatus(props.data.User.id, props.data.id, 'resolve'),
+          onClick: () =>
+            props.setOfferStatus(props.data.User.id, props.data.id, 'resolve'),
         },
         {
           label: 'No',
@@ -58,7 +59,8 @@ const OfferBox = (props) => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => props.setOfferStatus(props.data.User.id, props.data.id, 'reject'),
+          onClick: () =>
+            props.setOfferStatus(props.data.User.id, props.data.id, 'reject'),
         },
         {
           label: 'No',
@@ -81,23 +83,23 @@ const OfferBox = (props) => {
     const { status } = props.data;
     if (status === CONSTANTS.OFFER_STATUS_REJECTED) {
       return <i className={classNames('fas fa-times-circle reject', styles.reject)} />;
-    } if (status === CONSTANTS.OFFER_STATUS_WON) {
+    }
+    if (status === CONSTANTS.OFFER_STATUS_WON) {
       return <i className={classNames('fas fa-check-circle resolve', styles.resolve)} />;
     }
     return null;
   };
 
   const goChat = () => {
-    props.goToExpandedDialog({ interlocutor: props.data.User, conversationData: findConversationInfo() });
+    props.goToExpandedDialog({
+      interlocutor: props.data.User,
+      conversationData: findConversationInfo(),
+    });
   };
 
-  const {
-    data, role, id, contestType,
-  } = props;
+  const { data, role, id, contestType } = props;
   console.log(props);
-  const {
-    firstName, lastName, email, rating,
-  } = props.data.User;
+  const { firstName, lastName, email, rating } = props.data.User;
   return (
     <div className={styles.offerContainer}>
       {offerStatus()}
@@ -105,7 +107,11 @@ const OfferBox = (props) => {
         <div className={styles.userInfo}>
           <div className={styles.creativeInfoContainer}>
             <img
-              src={props.data.User?.avatar === 'anon.png' ? CONSTANTS.ANONYM_IMAGE_PATH : `${CONSTANTS.publicURL}${props.data.User?.avatar}`}
+              src={
+                props.data.User?.avatar === 'anon.png'
+                  ? CONSTANTS.ANONYM_IMAGE_PATH
+                  : `${CONSTANTS.publicURL}${props.data.User?.avatar}`
+              }
               alt="user"
             />
             <div className={styles.nameAndEmail}>
@@ -118,49 +124,63 @@ const OfferBox = (props) => {
             <Rating
               initialRating={rating}
               fractions={2}
-              fullSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
-              placeholderSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
-              emptySymbol={(
+              fullSymbol={
+                <img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />
+              }
+              placeholderSymbol={
+                <img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />
+              }
+              emptySymbol={
                 <img
                   src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`}
                   alt="star-outline"
                 />
-)}
+              }
               readonly
             />
           </div>
         </div>
         <div className={styles.responseConainer}>
-          {
-                        contestType === CONSTANTS.LOGO_CONTEST
-                          ? (
-                            <img
-                              onClick={() => props.changeShowImage({ imagePath: data.fileName, isShowOnFull: true })}
-                              className={styles.responseLogo}
-                              src={`${CONSTANTS.publicURL}${data.fileName}`}
-                              alt="logo"
-                            />
-                          )
-                          : <span className={styles.response}>{data.text}</span>
-                    }
+          {contestType === CONSTANTS.LOGO_CONTEST ? (
+            <img
+              onClick={() =>
+                props.changeShowImage({ imagePath: data.fileName, isShowOnFull: true })
+              }
+              className={styles.responseLogo}
+              src={`${CONSTANTS.publicURL}${data.fileName}`}
+              alt="logo"
+            />
+          ) : (
+            <span className={styles.response}>{data.text}</span>
+          )}
           {data.User.id !== id && (
-          <Rating
-            fractions={2}
-            fullSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
-            placeholderSymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />}
-            emptySymbol={<img src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`} alt="star" />}
-            onClick={changeMark}
-            placeholderRating={data.mark}
-          />
+            <Rating
+              fractions={2}
+              fullSymbol={
+                <img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />
+              }
+              placeholderSymbol={
+                <img src={`${CONSTANTS.STATIC_IMAGES_PATH}star.png`} alt="star" />
+              }
+              emptySymbol={
+                <img src={`${CONSTANTS.STATIC_IMAGES_PATH}star-outline.png`} alt="star" />
+              }
+              onClick={changeMark}
+              placeholderRating={data.mark}
+            />
           )}
         </div>
         {role !== CONSTANTS.CREATOR && <i onClick={goChat} className="fas fa-comments" />}
       </div>
       {props.needButtons(data.status) && (
-      <div className={styles.btnsContainer}>
-        <div onClick={resolveOffer} className={styles.resolveBtn}>Resolve</div>
-        <div onClick={rejectOffer} className={styles.rejectBtn}>Reject</div>
-      </div>
+        <div className={styles.btnsContainer}>
+          <div onClick={resolveOffer} className={styles.resolveBtn}>
+            Resolve
+          </div>
+          <div onClick={rejectOffer} className={styles.rejectBtn}>
+            Reject
+          </div>
+        </div>
       )}
     </div>
   );
@@ -178,7 +198,11 @@ const mapStateToProps = (state) => {
   const { id, role } = state.userStore.data;
   const { messagesPreview } = state.chatStore;
   return {
-    changeMarkError, id, role, messagesPreview, isShowModal,
+    changeMarkError,
+    id,
+    role,
+    messagesPreview,
+    isShowModal,
   };
 };
 

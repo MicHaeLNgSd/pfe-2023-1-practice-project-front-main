@@ -8,12 +8,12 @@ function NavBarList(props) {
   const { navList } = props;
   const navItems = navList.map((l) => {
     const listItems = l.items.map((i) => (
-      <li>
+      <li key={i.name}>
         <a href={i.link}>{i.name}</a>
       </li>
     ));
     return (
-      <li>
+      <li key={l.title}>
         <span>{l.title}</span>
         <img src={`${CONSTANTS.STATIC_IMAGES_PATH}menu-down.png`} alt="menu" />
         <ul>{listItems}</ul>

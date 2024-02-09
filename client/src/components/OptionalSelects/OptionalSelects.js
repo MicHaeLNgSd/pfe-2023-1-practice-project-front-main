@@ -42,9 +42,7 @@ const OptionalSelects = (props) => {
       return (
         <>
           <div className={styles.inputContainer}>
-            <span className={styles.inputHeader}>
-              What name of your venture?
-            </span>
+            <span className={styles.inputHeader}>What name of your venture?</span>
             <FormInput
               name="nameVenture"
               type="text"
@@ -74,9 +72,7 @@ const OptionalSelects = (props) => {
       return (
         <>
           <div className={styles.inputContainer}>
-            <span className={styles.inputHeader}>
-              What name of your venture?
-            </span>
+            <span className={styles.inputHeader}>What name of your venture?</span>
             <FormInput
               name="nameVenture"
               type="text"
@@ -101,6 +97,8 @@ const OptionalSelects = (props) => {
           />
         </>
       );
+    }
+    default: {
     }
   }
 };

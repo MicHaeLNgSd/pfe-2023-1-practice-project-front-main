@@ -5,7 +5,7 @@ import CONSTANTS from '../../constants';
 
 const ContestBox = (props) => {
   const getTimeStr = () => {
-    const diff = (moment.duration(moment().diff(moment(props.data.createdAt))));
+    const diff = moment.duration(moment().diff(moment(props.data.createdAt)));
     let str = '';
     if (diff._data.days !== 0) str = `${diff._data.days}d `;
     if (diff._data.hours !== 0) str += `${diff._data.hours}h`;
@@ -22,9 +22,7 @@ const ContestBox = (props) => {
 
   const ucFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-  const {
-    id, title, contestType, prize, count, goToExtended,
-  } = props.data;
+  const { id, title, contestType, prize, count } = props.data;
   return (
     <div className={styles.contestBoxContainer} onClick={() => props.goToExtended(id)}>
       <div className={styles.mainContestInfo}>
@@ -36,7 +34,10 @@ const ContestBox = (props) => {
           <span>{`${ucFirstLetter(contestType)} / ${getPreferenceContest()}`}</span>
         </div>
         <div className={styles.contestType}>
-          <span>This is an Invitation Only Contest and is only open to those Creatives who have achieved a Tier A status.</span>
+          <span>
+            This is an Invitation Only Contest and is only open to those Creatives who
+            have achieved a Tier A status.
+          </span>
         </div>
         <div className={styles.prizeContainer}>
           <div className={styles.guaranteedContainer}>
