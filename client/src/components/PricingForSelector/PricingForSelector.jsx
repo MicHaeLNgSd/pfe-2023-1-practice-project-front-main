@@ -8,14 +8,17 @@ function PricingForSelector() {
     setPricingFor(value);
   };
   return (
-    <div>
+    <div className={styles.pricingContainer}>
       <div className={styles.pricingFor}>
         <label>
-          <select value={pricingFor} onChange={handleChange}>
-            {CONSTANTS.PRICING_FOR.map((option) => (
-              <option key={option}>{option}</option>
-            ))}
-          </select>
+          <span>Pricing for</span>
+          <div className={styles.priceSelector}>
+            <select value={pricingFor} onChange={handleChange}>
+              {CONSTANTS.PRICING_FOR.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
+            </select>
+          </div>
         </label>
       </div>
     </div>
