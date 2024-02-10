@@ -7,8 +7,11 @@ $managed:#28d2d0
 .pricingItem
   cursor: pointer
   width:25%
+  line-height: 1.5
+  font-weight: 500
   &:hover .pricingBox
     box-shadow: 0 10px 10px #6f6f6f
+    opacity: 1
   &:nth-child(1)
     .priceButton
       background-color: $bronze
@@ -59,12 +62,15 @@ $managed:#28d2d0
   line-height: 45px
   cursor: pointer
   font-family: sans-serif
+  .buttonIcon
+    margin: 0 5px -2px 0
   
 .title
   color: black
   font-size: 33px
   font-weight: bold
   margin-bottom: 10px
+  line-height: 1
 
 .boxText
   color: #666
@@ -76,15 +82,16 @@ $managed:#28d2d0
   text-align: right
   width: 100%
   font-size: 28px
-  font-weight: bold
+  font-weight: 600
   color: $platinum
   font-family: 'Raleway', sans-serif
 
 .pricingBox
+  opacity: 0.9
   border: 10px solid black
   margin-bottom: 15px
   padding: 16px
-  min-height: 150px
+  min-height: 160px
   display: flex
   flex-direction: column
   justify-content: space-between

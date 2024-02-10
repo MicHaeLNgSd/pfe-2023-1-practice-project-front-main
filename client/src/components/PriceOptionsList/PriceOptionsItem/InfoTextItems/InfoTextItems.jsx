@@ -5,10 +5,14 @@ import styles from './InfoTextItems.module.sass';
 function InfoTextItems({ info }) {
   const { text, list = [] } = info;
 
-  const infoText = text.map((text) => <p className={styles.infoText}>{text}</p>);
-  const infoListItems = list.map((item) => (
-    <li className={styles.infoListItem}>
-      <FaCheck />
+  const infoText = text.map((text, i) => (
+    <p key={i} className={styles.infoText}>
+      {text}
+    </p>
+  ));
+  const infoListItems = list.map((item, i) => (
+    <li key={i} className={styles.infoListItem}>
+      <FaCheck className={styles.listIcon} />
       <span>{item}</span>
     </li>
   ));

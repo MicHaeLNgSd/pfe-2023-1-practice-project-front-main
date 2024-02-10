@@ -133,5 +133,20 @@ const CONSTANTS = {
       ],
     },
   ],
+  PRICING_FOR: [
+    'Name',
+    'Logo',
+    'Tagline',
+    'Name and Logo',
+    'Name and Tagline',
+    'Name, Tagline and Logo',
+    'Name, Logo and Business Cards',
+    'Logo and Business Cards',
+    'Logo, Business Cards and Stationery',
+    'Logo and Tagline',
+    'Business Cards',
+    'Stationery',
+    'Product Feedback and Research',
+  ],
 };
 export default CONSTANTS;

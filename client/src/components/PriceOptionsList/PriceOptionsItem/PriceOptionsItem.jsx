@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/fa';
 import InfoTextItems from './InfoTextItems/InfoTextItems';
 
 function PriceOptionsItem({ data }) {
-  const infoItem = data.info.map((info) => <InfoTextItems info={info} />);
+  const infoItem = data.info.map((info, i) => <InfoTextItems key={i} info={info} />);
   return (
     <li className={styles.pricingItem}>
       <div className={styles.pricingBox}>
@@ -15,10 +15,10 @@ function PriceOptionsItem({ data }) {
         <span className={styles.price}>US${data.price}</span>
       </div>
       <ul>
-        <li>{infoItem}</li>
+        {infoItem}
         <li>
           <a href="/" className={styles.priceButton}>
-            <FaCheck />
+            <FaCheck className={styles.buttonIcon} />
             <span>Start</span>
           </a>
         </li>
